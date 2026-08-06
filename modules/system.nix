@@ -105,6 +105,11 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  programs.ssh = {
+    startAgent = true;
+    enableAskPassword = true;
+  };
+  environment.variables.SSH_ASKPASS_REQUIRE = "prefer";
 
   # $EDITOR
   #environment.variables.EDITOR = "vim";
