@@ -1,0 +1,18 @@
+{
+  imports = [
+    ./hardware-configuration.nix
+    ./modules/desktop.nix
+    ./modules/gaming.nix
+    ./modules/glance.nix
+    ./modules/keepassxc.nix
+    ./modules/neovim.nix
+    ./modules/networking.nix
+    ./modules/nvidia.nix
+    ./modules/packages.nix
+    ./modules/rclone.nix
+    ./modules/shell.nix
+    ./modules/spicetify.nix
+    ./modules/syncthing.nix
+    ./modules/system.nix
+  ];
+}
