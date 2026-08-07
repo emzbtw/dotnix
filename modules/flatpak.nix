@@ -22,4 +22,8 @@
 
     uninstallUnmanaged = false; # leave manually-installed flatpaks alone (least-destructive default)
   };
+
+  environment.sessionVariables.XDG_DATA_DIRS = [
+    "/var/lib/flatpak/exports/share"
+  ];
 }
