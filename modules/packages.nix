@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -16,24 +12,22 @@
     btop
     nixd
     ffmpeg
-    logseq
     gnumake
     ddcutil
     equibop
     seanime
     hunspell
+    obsidian
     alejandra
     stress-ng
     libnotify
     zed-editor
     unigine-heaven
     hyphenDicts.en_GB
-    stremio-linux-shell
     libreoffice-qt-fresh
     hunspellDicts.en_GB-ise
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-39.8.10"
   ];
 }

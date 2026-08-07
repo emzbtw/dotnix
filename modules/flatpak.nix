@@ -11,6 +11,7 @@
     ];
 
     packages = [
+      "com.stremio.Stremio"
     ];
 
     update.onActivation = true; # updates run at `nh os switch`, not just install

@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -94,8 +90,7 @@
     description = "emz";
     extraGroups = ["networkmanager" "wheel" "i2c"];
     shell = pkgs.fish;
-    packages = with pkgs; [
-    ];
+    packages = [];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
