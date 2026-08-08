@@ -12,6 +12,8 @@
   sops.secrets."seerr/api_key" = {};
   sops.secrets."sabnzbd/api_key" = {};
   sops.secrets."sabnzbd/nzb_key" = {};
+  sops.secrets."usenet/eweka/username" = {};
+  sops.secrets."usenet/eweka/password" = {};
   sops.secrets."jellyfin/admin_password" = {};
   sops.secrets."jellyfin/api_key" = {};
 }

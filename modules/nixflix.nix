@@ -40,9 +40,24 @@
 
     usenetClients.sabnzbd = {
       enable = true;
-      settings.misc = {
-        api_key = {_secret = config.sops.secrets."sabnzbd/api_key".path;};
-        nzb_key = {_secret = config.sops.secrets."sabnzbd/nzb_key".path;};
+      settings = {
+        misc = {
+          api_key = {_secret = config.sops.secrets."sabnzbd/api_key".path;};
+          nzb_key = {_secret = config.sops.secrets."sabnzbd/nzb_key".path;};
+        };
+        servers = [
+          {
+            name = "primary";
+            host = "sslreader.eweka.nl";
+            port = 563;
+            ssl = true;
+            connections = 50;
+            priority = 0;
+            retention = 6564;
+            username = {_secret = config.sops.secrets."usenet/eweka/username".path;};
+            password = {_secret = config.sops.secrets."usenet/eweka/password".path;};
+          }
+        ];
       };
     };
 
