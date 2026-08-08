@@ -1,0 +1,9 @@
+keys:
+  - &emz age1zfj4lxqqh3r7lwpfuutse8laazhug7lfhldqns7agyls65sd33wsdmy58e
+  - &nixos age1qwmsx6tj2txlv8jy4s6qq6hqvjsh3kcct5ln82shxyd7mkdmraqs8sgr40
+creation_rules:
+  - path_regex: secrets/[^/]+\.yaml$
+    key_groups:
+      - age:
+          - *emz
+          - *nixos
