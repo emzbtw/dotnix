@@ -8,9 +8,11 @@
     ./modules/keepassxc.nix
     ./modules/neovim.nix
     ./modules/networking.nix
+    ./modules/nixflix.nix
     ./modules/nvidia.nix
     ./modules/packages.nix
     ./modules/rclone.nix
+    ./modules/secrets.nix
     ./modules/shell.nix
     ./modules/spicetify.nix
     ./modules/syncthing.nix

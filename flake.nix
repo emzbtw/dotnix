@@ -3,6 +3,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nixflix = {
+      url = "github:kiriwalawren/nixflix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +21,7 @@
     self,
     nixpkgs,
     nix-flatpak,
+    nixflix,
     sops-nix,
     spicetify-nix,
     ...
@@ -26,6 +31,7 @@
       modules = [
         ./configuration.nix
         nix-flatpak.nixosModules.nix-flatpak
+        nixflix.nixosModules.default
         sops-nix.nixosModules.sops
         spicetify-nix.nixosModules.default
       ];

@@ -9,6 +9,9 @@
   sops.secrets."radarr/password" = {};
   sops.secrets."prowlarr/api_key" = {};
   sops.secrets."prowlarr/password" = {};
+  sops.secrets."seerr/api_key" = {};
   sops.secrets."sabnzbd/api_key" = {};
+  sops.secrets."sabnzbd/nzb_key" = {};
   sops.secrets."jellyfin/admin_password" = {};
+  sops.secrets."jellyfin/api_key" = {};
 }
