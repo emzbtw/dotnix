@@ -27,6 +27,11 @@
       };
     };
 
+    recyclarr = {
+      enable = true;
+      cleanupUnmanagedProfiles.enable = true;
+    };
+
     prowlarr = {
       enable = true;
       config = {
