@@ -21,6 +21,7 @@
     hunspell
     obsidian
     alejandra
+    mcp-nixos
     stress-ng
     libnotify
     zed-editor
