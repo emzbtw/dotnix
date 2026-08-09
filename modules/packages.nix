@@ -24,6 +24,7 @@
     stress-ng
     libnotify
     zed-editor
+    claude-code
     unigine-heaven
     hyphenDicts.en_GB
     libreoffice-qt-fresh
