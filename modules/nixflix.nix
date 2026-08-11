@@ -40,6 +40,16 @@
           username = "admin";
           password = {_secret = config.sops.secrets."prowlarr/password".path;};
         };
+        indexers = [
+          {
+            name = "DrunkenSlug";
+            apiKey = {_secret = config.sops.secrets."prowlarr/indexers/drunkenslug/api_key".path;};
+          }
+          {
+            name = "NZBgeek";
+            apiKey = {_secret = config.sops.secrets."prowlarr/indexers/nzbgeek/api_key".path;};
+          }
+        ];
       };
     };
 
