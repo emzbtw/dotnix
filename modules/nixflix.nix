@@ -62,7 +62,7 @@
         };
         servers = [
           {
-            name = "primary";
+            name = "Eweka";
             host = "sslreader.eweka.nl";
             port = 563;
             ssl = true;
