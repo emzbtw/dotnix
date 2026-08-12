@@ -92,8 +92,8 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1786570583,
-        "narHash": "sha256-TPdYprJ/NQMk6Z/T9+I5ljOxBmmzu40Oo8+922195yw=",
+        "lastModified": 1786572614,
+        "narHash": "sha256-otvBZpErhPWOEh/TnTvCWQj8SSniK7Xf1JO3v5Zn9YI=",
         "path": "/home/emz/code/projects/reel",
         "type": "path"
       },
