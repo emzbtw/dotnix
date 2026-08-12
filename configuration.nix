@@ -12,6 +12,7 @@
     ./modules/nvidia.nix
     ./modules/packages.nix
     ./modules/rclone.nix
+    ./modules/reel.nix
     ./modules/secrets.nix
     ./modules/shell.nix
     ./modules/spicetify.nix
