@@ -63,7 +63,7 @@
         servers = [
           {
             name = "Eweka";
-            host = "sslreader.eweka.nl";
+            host = "news.eweka.nl";
             port = 563;
             ssl = true;
             connections = 20;
