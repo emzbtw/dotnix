@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # Install fish shell
   programs.fish.enable = true;
 
@@ -23,6 +27,10 @@
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/emz/nixos";
   };
+
+  # Install comma, runs software without installing it
+  programs.nix-index-database.comma.enable = true;
+  programs.nix-index.package = inputs.nix-index-database.packages.${pkgs.stdenv.hostPlatform.system}.nix-index-with-small-db;
 
   environment.systemPackages = with pkgs; [
     fd
