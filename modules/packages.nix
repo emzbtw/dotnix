@@ -13,6 +13,7 @@
     sops
     sox
     btop
+    just
     nixd
     gopls
     ffmpeg
