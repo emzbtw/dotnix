@@ -66,7 +66,7 @@
             host = "sslreader.eweka.nl";
             port = 563;
             ssl = true;
-            connections = 50;
+            connections = 20;
             priority = 0;
             retention = 6564;
             username = {_secret = config.sops.secrets."usenet/eweka/username".path;};

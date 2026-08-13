@@ -32,6 +32,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786249295,
+        "narHash": "sha256-Y2mSr+HLKYoOsjiackgilxkHXe8gkJ3z4hFFekjQX3I=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "14d55b8069119e3b88da7aa2f6c97f86a2cd3cd6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixflix": {
       "inputs": {
         "mkdocs-catppuccin": "mkdocs-catppuccin",
@@ -105,6 +125,7 @@
     "root": {
       "inputs": {
         "nix-flatpak": "nix-flatpak",
+        "nix-index-database": "nix-index-database",
         "nixflix": "nixflix",
         "nixpkgs": "nixpkgs",
         "reel": "reel",
