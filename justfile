@@ -15,6 +15,7 @@ try:
 
 # activate and set as boot default
 switch:
+    git add -A
     nh os switch .#{{host}}
 
 # run flake checks
