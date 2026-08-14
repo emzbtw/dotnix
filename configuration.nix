@@ -18,5 +18,6 @@
     ./modules/spicetify.nix
     ./modules/syncthing.nix
     ./modules/system.nix
+    ./modules/tailscale.nix
   ];
 }
