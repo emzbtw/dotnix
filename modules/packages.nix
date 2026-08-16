@@ -33,6 +33,7 @@
     unigine-heaven
     hyphenDicts.en_GB
     libreoffice-qt-fresh
+    nvtopPackages.nvidia
     hunspellDicts.en_GB-ise
   ];
 
