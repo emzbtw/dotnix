@@ -33,19 +33,20 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── gaming.nix                # Steam, gamemode, MangoHud
     ├── glance.nix                 # Glance dashboard
     ├── keepassxc.nix               # KeePassXC + backup service
-    ├── neovim.nix                   # Neovim, nixd LSP, format-on-save
-    ├── networking.nix                # network config, Bluetooth
-    ├── nixflix.nix                    # Jellyfin / *arr / SABnzbd / Seerr / Recyclarr
-    ├── nvidia.nix                      # NVIDIA proprietary driver
-    ├── packages.nix                     # system-wide packages
-    ├── rclone.nix                        # rclone, cloud remote sync/backup
-    ├── reel.nix                           # reel, a Go TUI/CLI for Seerr, flake-packaged
-    ├── secrets.nix                         # sops-nix wiring (age keys, sops.secrets)
-    ├── shell.nix                            # fish, Ghostty, CLI/TUI tools
-    ├── spicetify.nix                         # spicetify-nix (Spotify theming)
-    ├── syncthing.nix                          # Syncthing, syncs files to devices over the LAN
-    ├── system.nix                              # boot, stateVersion, sudo, SSH
-    └── tailscale.nix                            # Tailscale mesh VPN
+    ├── llama-cpp.nix                # llama-cpp, LLM inference in C/C++
+    ├── neovim.nix                    # Neovim, nixd LSP, format-on-save
+    ├── networking.nix                 # network config, Bluetooth
+    ├── nixflix.nix                     # Jellyfin / *arr / SABnzbd / Seerr / Recyclarr
+    ├── nvidia.nix                       # NVIDIA proprietary driver
+    ├── packages.nix                      # system-wide packages
+    ├── rclone.nix                         # rclone, cloud remote sync/backup
+    ├── reel.nix                            # reel, a Go TUI/CLI for Seerr, flake-packaged
+    ├── secrets.nix                          # sops-nix wiring (age keys, sops.secrets)
+    ├── shell.nix                             # fish, Ghostty, CLI/TUI tools
+    ├── spicetify.nix                          # spicetify-nix (Spotify theming)
+    ├── syncthing.nix                           # Syncthing, syncs files to devices over the LAN
+    ├── system.nix                               # boot, stateVersion, sudo, SSH
+    └── tailscale.nix                             # Tailscale mesh VPN
 ```
 
 Modules are organized **by concern, not chronology**: a new setting goes into the module it belongs to, or gets its own file only once that concern is stable.
