@@ -3,7 +3,7 @@
     cudaSupport = true;
   };
   mcpServersConfig = pkgs.writeText "llama-cpp-mcp-servers.json" (builtins.toJSON {
-    mcpServers.nixos = {command = "mcp-nixos";};
+    mcpServers.nixos = {command = "${pkgs.mcp-nixos}/bin/mcp-nixos";};
   });
 in {
   services.llama-cpp = {
