@@ -30,6 +30,7 @@
     libnotify
     zed-editor
     claude-code
+    brave-origin
     unigine-heaven
     hyphenDicts.en_GB
     libreoffice-qt-fresh
