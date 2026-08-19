@@ -40,6 +40,7 @@
     dig
     eza
     zip
+    cava
     wget
     yazi
     procs
