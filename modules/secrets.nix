@@ -12,6 +12,7 @@
   sops.secrets."prowlarr/api_key" = {};
   sops.secrets."prowlarr/password" = {};
   sops.secrets."prowlarr/indexers/drunkenslug/api_key" = {};
+  sops.secrets."prowlarr/indexers/nzbfinder/api_key" = {};
   sops.secrets."prowlarr/indexers/nzbgeek/api_key" = {};
   sops.secrets."seerr/api_key" = {};
   sops.secrets."sabnzbd/api_key" = {};
