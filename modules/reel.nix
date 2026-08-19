@@ -3,8 +3,8 @@
   inputs,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
-    inputs.reel.packages.${system}.default
+  environment.systemPackages = [
+    inputs.reel.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   systemd.services.reel-sync = {
