@@ -70,7 +70,7 @@
         misc = {
           api_key = {_secret = config.sops.secrets."sabnzbd/api_key".path;};
           nzb_key = {_secret = config.sops.secrets."sabnzbd/nzb_key".path;};
-          bandwidth_max = "100MB/s";
+          bandwidth_max = "100M";
           bandwidth_perc = 80;
           cache_limit = "1G";
           download_dir = "/var/lib/sabnzbd/incomplete";
