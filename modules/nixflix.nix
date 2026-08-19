@@ -16,6 +16,17 @@
       };
     };
 
+    sonarr-anime = {
+      enable = true;
+      config = {
+        apiKey = {_secret = config.sops.secrets."sonarr-anime/api_key".path;};
+        hostConfig = {
+          username = "admin";
+          password = {_secret = config.sops.secrets."sonarr-anime/password".path;};
+        };
+      };
+    };
+
     radarr = {
       enable = true;
       config = {
@@ -88,16 +99,6 @@
     seerr = {
       enable = true;
       apiKey = {_secret = config.sops.secrets."seerr/api_key".path;};
-
-      radarr.default = {
-        apiKey = {_secret = config.sops.secrets."radarr/api_key".path;};
-        isDefault = true;
-      };
-
-      sonarr.default = {
-        apiKey = {_secret = config.sops.secrets."sonarr/api_key".path;};
-        isDefault = true;
-      };
     };
   };
 }

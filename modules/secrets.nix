@@ -5,6 +5,8 @@
 
   sops.secrets."sonarr/api_key" = {};
   sops.secrets."sonarr/password" = {};
+  sops.secrets."sonarr-anime/api_key" = {};
+  sops.secrets."sonarr-anime/password" = {};
   sops.secrets."radarr/api_key" = {};
   sops.secrets."radarr/password" = {};
   sops.secrets."prowlarr/api_key" = {};
