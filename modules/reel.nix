@@ -14,7 +14,7 @@
     serviceConfig = {
       Type = "oneshot";
       User = "emz";
-      ExecStart = "${inputs.reel.packages.${pkgs.system}.default}/bin/reel sync --quiet --yes";
+      ExecStart = "${inputs.reel.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/reel sync --quiet --yes";
       Environment = "SSL_CERT_FILE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
     };
   };
