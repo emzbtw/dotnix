@@ -6,8 +6,5 @@
 
   environment.systemPackages = with pkgs; [
     xwayland-satellite
-    swayidle
-    grim
-    slurp
   ];
 }
