@@ -7,6 +7,16 @@
     nwg-look
     capitaine-cursors
     papirus-icon-theme
+    (catppuccin-gtk.override {
+      accents = ["mauve"];
+      size = "standard";
+      tweaks = ["rimless"];
+      variant = "mocha";
+    })
+    (catppuccin-papirus-folders.override {
+      accent = "mauve";
+      flavor = "mocha";
+    })
   ];
 
   fonts.packages = with pkgs; [
