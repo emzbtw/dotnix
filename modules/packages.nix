@@ -23,6 +23,7 @@
     gofumpt
     seanime
     hunspell
+    nautilus
     obsidian
     alejandra
     mcp-nixos
