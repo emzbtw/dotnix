@@ -100,11 +100,8 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.ssh = {
-    startAgent = true;
-    enableAskPassword = true;
-  };
-  environment.variables.SSH_ASKPASS_REQUIRE = "prefer";
+  services.gnome.gcr-ssh-agent.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
 
   # $EDITOR
   #environment.variables.EDITOR = "vim";

@@ -1,9 +1,8 @@
 {pkgs, ...}: {
-  programs.niri.enable = true;
-  #useNautilus = true;
-
-  services.gnome.gcr-ssh-agent.enable = false;
-
+  programs.niri = {
+    enable = true;
+    useNautilus = true;
+  };
   environment.systemPackages = with pkgs; [
     xwayland-satellite
   ];
