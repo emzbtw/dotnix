@@ -9,6 +9,8 @@
     ./modules/llama-cpp.nix
     ./modules/neovim.nix
     ./modules/networking.nix
+    ./modules/niri.nix
+    ./modules/noctalia.nix
     ./modules/nixflix.nix
     ./modules/nvidia.nix
     ./modules/packages.nix
