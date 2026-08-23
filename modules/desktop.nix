@@ -6,7 +6,6 @@
   environment.systemPackages = with pkgs; [
     nwg-look
     capitaine-cursors
-    papirus-icon-theme
     (catppuccin-gtk.override {
       accents = ["mauve"];
       size = "standard";
