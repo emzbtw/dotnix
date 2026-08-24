@@ -5,6 +5,7 @@
     ./modules/flatpak.nix
     ./modules/gaming.nix
     ./modules/glance.nix
+    ./modules/hyprland.nix
     ./modules/keepassxc.nix
     ./modules/llama-cpp.nix
     ./modules/neovim.nix
