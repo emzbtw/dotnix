@@ -17,6 +17,7 @@
     nixd
     gopls
     ffmpeg
+    stylua
     gnumake
     ddcutil
     equibop
