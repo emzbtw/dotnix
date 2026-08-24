@@ -36,7 +36,7 @@
     google-chrome
     unigine-heaven
     hyphenDicts.en_GB
-    libreoffice-qt-fresh
+    libreoffice-qt-stable
     nvtopPackages.nvidia
     hunspellDicts.en_GB-ise
   ];
