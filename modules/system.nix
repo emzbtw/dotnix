@@ -109,9 +109,9 @@
 
   systemd.user.services.xdg-desktop-portal = {
     unitConfig = {
-      PartOf = lib.mkForce [];
-      Requisite = lib.mkForce [];
-      After = lib.mkForce [];
+      PartOf = lib.mkForce "";
+      Requisite = lib.mkForce "";
+      After = lib.mkForce "";
     };
   };
 
