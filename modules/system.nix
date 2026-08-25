@@ -1,8 +1,4 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   nixpkgs.config.allowUnfree = true;
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -106,14 +102,6 @@
   # };
   services.gnome.gcr-ssh-agent.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
-
-  systemd.user.services.xdg-desktop-portal = {
-    unitConfig = {
-      PartOf = lib.mkForce "";
-      Requisite = lib.mkForce "";
-      After = lib.mkForce "";
-    };
-  };
 
   # $EDITOR
   #environment.variables.EDITOR = "vim";
