@@ -23,6 +23,6 @@
     ./modules/syncthing.nix
     ./modules/system.nix
     ./modules/tailscale.nix
-    #./modules/umbriel.nix
+    ./modules/umbriel.nix
   ];
 }

@@ -20,6 +20,14 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    umbriel = {
+      url = "git+https://github.com/noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    xdg-desktop-portal-umbriel = {
+      url = "github:noctalia-dev/xdg-desktop-portal-umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -30,6 +38,7 @@
     nixflix,
     sops-nix,
     spicetify-nix,
+    umbriel,
     ...
   } @ inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -41,6 +50,7 @@
         nixflix.nixosModules.default
         sops-nix.nixosModules.sops
         spicetify-nix.nixosModules.default
+        umbriel.nixosModules.default
       ];
     };
   };
