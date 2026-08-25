@@ -56,10 +56,10 @@
             name = "DrunkenSlug";
             apiKey = {_secret = config.sops.secrets."prowlarr/indexers/drunkenslug/api_key".path;};
           }
-          {
-            name = "NZBFinder";
-            apiKey = {_secret = config.sops.secrets."prowlarr/indexers/nzbfinder/api_key".path;};
-          }
+          #{
+          #  name = "NZBFinder";
+          #  apiKey = {_secret = config.sops.secrets."prowlarr/indexers/nzbfinder/api_key".path;};
+          #}
           {
             name = "NZBgeek";
             apiKey = {_secret = config.sops.secrets."prowlarr/indexers/nzbgeek/api_key".path;};
