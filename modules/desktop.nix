@@ -3,6 +3,8 @@
   # when this is true, regardless of X11 vs Wayland session use.
   services.xserver.enable = true;
 
+  services.gvfs.enable = true;
+
   environment.systemPackages = with pkgs; [
     nwg-look
     capitaine-cursors

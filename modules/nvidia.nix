@@ -4,6 +4,7 @@
   ...
 }: {
   hardware.graphics.enable = true;
+  # hardware.graphics.extraPackages = [pkgs.nvidia-vaapi-driver];
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia.open = false;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
@@ -11,10 +12,6 @@
   hardware.nvidia.powerManagement.enable = true;
 
   nixpkgs.config.cudaCapabilities = ["5.2"];
-
-  environment.systemPackages = with pkgs; [
-    nvidia-vaapi-driver
-  ];
 
   nix.settings = {
     substituters = ["https://cache.nixos-cuda.org"];
