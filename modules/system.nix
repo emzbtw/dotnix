@@ -100,8 +100,8 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  services.gnome.gcr-ssh-agent.enable = true;
-  security.pam.services.login.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   # $EDITOR
   #environment.variables.EDITOR = "vim";
