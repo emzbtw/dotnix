@@ -73,7 +73,7 @@ Modules are organized **by concern, not chronology**: a new setting goes into th
 
 ```
 just switch     # nh os switch, apply and set as boot default
-just try        # nh os test, activate without changing boot default
+just test       # nh os test, activate without changing boot default
 just build      # nh os build, compile-check only
 just boot       # nh os boot, for kernel/initrd changes verified via reboot
 just upgrade    # bump all flake inputs, rebuild, --ask before activating

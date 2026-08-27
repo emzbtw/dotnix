@@ -12,7 +12,7 @@ build:
 
 # activate without setting as the boot default
 [group('nixos')]
-try:
+test:
     nh os test .#{{host}}
 
 # activate and set as boot default
