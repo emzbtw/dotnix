@@ -11,7 +11,7 @@
     ];
 
     packages = [
-      #"com.stremio.Stremio"
+      "dev.fredol.open-tv"
     ];
 
     update.onActivation = true; # updates run at `nh os switch`, not just install
