@@ -54,6 +54,7 @@
     tealdeer
     starship
     fastfetch
+    concord-tui
     wl-clipboard
     proton-vpn-cli
     translate-shell
