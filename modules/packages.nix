@@ -5,7 +5,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    go
     age
     gcc
     nvd
@@ -15,13 +14,11 @@
     btop
     just
     nixd
-    gopls
     ffmpeg
     stylua
     gnumake
     ddcutil
     equibop
-    gofumpt
     seanime
     hunspell
     nautilus
