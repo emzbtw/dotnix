@@ -7,6 +7,7 @@
   environment.systemPackages = with pkgs; [
     age
     gcc
+    imv
     nvd
     mpv
     sops
