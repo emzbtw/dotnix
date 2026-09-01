@@ -20,11 +20,17 @@
     enableFishIntegration = true;
   };
 
+  # Shell extension that manages your environment
+  programs.direnv = {
+    enable = true;
+    silent = true;
+  };
+
   # Install nh the yet-another-nix-helper
   programs.nh = {
     enable = true;
     clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
+    clean.extraArgs = "--keep-since 4d --keep 3 --no-direnv";
     flake = "/home/emz/nixos";
   };
 

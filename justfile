@@ -68,7 +68,7 @@ options query:
 # garbage collect
 [group('nixos')]
 clean:
-    nh clean all
+    nh clean all --no-direnv
 
 # --- git ---
 
