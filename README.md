@@ -37,7 +37,7 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── keepassxc.nix                # KeePassXC + backup service
     ├── llama-cpp.nix                 # CUDA llama.cpp server + MCP wiring
     ├── neovim.nix                     # Neovim, nix-ld, lua-language-server
-    ├── networking.nix                  # hostname, NetworkManager, Quad9 DoT, Bluetooth
+    ├── networking.nix                  # hostname, NetworkManager, Quad9 DoT fallback, Bluetooth
     ├── niri.nix                         # disabled — kept from the migration path
     ├── nixflix.nix                       # Jellyfin / *arr / SABnzbd / Seerr / Recyclarr
     ├── noctalia.nix                       # Noctalia shell + greeter
@@ -46,7 +46,7 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── rclone.nix                            # rclone, cloud remote sync/backup
     ├── reel.nix                               # reel, a Go TUI/CLI for Seerr, flake-packaged
     ├── secrets.nix                             # sops-nix wiring (age keys, sops.secrets)
-    ├── shell.nix                                # fish, Ghostty, CLI/TUI tools
+    ├── shell.nix                                # fish, Ghostty, CLI/TUI tools, direnv
     ├── spicetify.nix                             # spicetify-nix (Spotify theming)
     ├── syncthing.nix                              # Syncthing, syncs files over the LAN
     ├── system.nix                                  # boot, kernel, scheduler, locale, audio, user
@@ -61,6 +61,7 @@ Modules are organized **by concern, not chronology**: a new setting goes into th
 - **Flakes, no Home Manager.** Kept deliberately simple; complexity gets added only once a workflow has stabilized (YAGNI over structure-for-its-own-sake).
 - **Umbriel + Noctalia**, after a KDE Plasma → niri → Hyprland → Umbriel migration. Compositor from a flake input, shell and greeter from nixpkgs. Xwayland is on-demand via `xwayland-satellite` with no configuration beyond the package being present.
 - **`nh` + `just`** for the rebuild loop: `just switch` / `try` / `build` map to `nh os switch` / `test` / `build`, plus `upgrade` for bumping flake inputs and git shortcuts (`add`, `commit`, `push`, `diff`, `log`) scoped to this repo.
+- **`direnv` + `nix-direnv`** for per-project toolchains. Language tooling lives in each project's own flake `devShell`, not in `packages.nix` — so Go versions can diverge between projects and an agent working in a repo sees only that repo's tools. `nh clean` runs with `--no-direnv` so it doesn't garbage-collect the devShell gcroots.
 - **`sops-nix`** for secrets, with separate machine and personal age keys. Encrypts values only, so the repo stays public and human-readable.
 - **`nixflix`**: a self-hosted media stack (Jellyfin, Sonarr, Sonarr-Anime, Radarr, Prowlarr, SABnzbd, Seerr, Recyclarr) run direct-play only, since GM204 can't decode 10-bit HEVC. Indexers and quality profiles are declared in Nix and destructively reconciled on activation.
 - **`llama-cpp`** built with `cudaSupport`, served on `:8090` in router mode with an MCP server wired in by absolute store path (the hardened unit has no `$PATH`). `cudaCapabilities` pinned to `5.2` so CUDA builds target only this card.
@@ -89,5 +90,5 @@ Day to day the landing path is a fish function, `nswitch`, which stages, shows a
 - `/etc/nixos` is a symlink to this repo, kept for tooling that assumes the default path.
 - Public on purpose: nothing here is a secret; actual secrets go through `sops-nix` rather than a private repo.
 - `hyprland.nix` and `niri.nix` are commented out of `configuration.nix` and kept only as migration reference.
-- The `reel` input is a `path:` reference to a local directory, so this flake won't evaluate on a fresh clone without it.
+- The `reel` input is a `git+file:` reference to a local directory, so this flake won't evaluate on a fresh clone without it. `git+file:` rather than `path:` deliberately — `path:` copies the directory wholesale with no gitignore filtering, which would pull `.direnv/` into the input's hash and churn the lock on every devShell rebuild. The tradeoff is that uncommitted changes in `reel` are invisible here.
 - Editor configs (Neovim/LazyVim, Zed), fish functions, and the Umbriel `config.toml` all live outside this repo by design.
