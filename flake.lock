@@ -112,14 +112,17 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1787160711,
-        "narHash": "sha256-Sis8I10qui/6Cok4O1ZX2xcCXGvxcRSy+mhDgDdcWco=",
-        "path": "/home/emz/code/projects/reel",
-        "type": "path"
+        "lastModified": 1788267350,
+        "narHash": "sha256-KPl/T+yyOy3M8fW0B6C6/YbzNWUjRhjlt1aeK3wPgXg=",
+        "ref": "refs/heads/main",
+        "rev": "f813306b3f9f957e2e262e638bff66bc1508bad9",
+        "revCount": 52,
+        "type": "git",
+        "url": "file:///home/emz/code/projects/reel"
       },
       "original": {
-        "path": "/home/emz/code/projects/reel",
-        "type": "path"
+        "type": "git",
+        "url": "file:///home/emz/code/projects/reel"
       }
     },
     "root": {
