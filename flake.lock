@@ -82,11 +82,11 @@
         "vpn-confinement": "vpn-confinement"
       },
       "locked": {
-        "lastModified": 1788392194,
-        "narHash": "sha256-NC2byawCzqcYL0Sjfrg2Xu8qSuYDBZgXd/7c7nEkHdo=",
+        "lastModified": 1788467266,
+        "narHash": "sha256-tdYoQgPbcyGdYUfJVhJUzLgXRybqj6U6+BktmTp7GLM=",
         "owner": "kiriwalawren",
         "repo": "nixflix",
-        "rev": "b98804bf486edcc1c7fe4ff00864328d10a4ca8d",
+        "rev": "c5b5944791ecbc2a434fbf6d8d95859aee47b3b9",
         "type": "github"
       },
       "original": {
@@ -244,11 +244,11 @@
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
       },
       "locked": {
-        "lastModified": 1788405257,
-        "narHash": "sha256-+1BOzUs90KhgQPS8dwPyn0CIAI++7WlrYRjhN3i9c0w=",
+        "lastModified": 1788491558,
+        "narHash": "sha256-lMSTyMENIZQFz/bNltheKSDx8GEf0c7eb9z/a/eQenU=",
         "ref": "refs/heads/main",
-        "rev": "8235b9e0cb97725bcaec9fe1757f5597c847b7e6",
-        "revCount": 763,
+        "rev": "fd3bc638626574696ab522e44616d17f08cf4aca",
+        "revCount": 782,
         "type": "git",
         "url": "https://github.com/noctalia-dev/umbriel"
       },
