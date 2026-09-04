@@ -32,8 +32,6 @@
     libnotify
     zed-editor
     claude-code
-    brave-origin
-    google-chrome
     unigine-heaven
     hyphenDicts.en_GB
     libreoffice-qt-stable
