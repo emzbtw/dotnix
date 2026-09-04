@@ -21,6 +21,7 @@
     ddcutil
     equibop
     seanime
+    chromium
     hunspell
     nautilus
     obsidian
