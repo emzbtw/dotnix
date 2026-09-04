@@ -6,12 +6,10 @@
     ./modules/flick.nix
     ./modules/gaming.nix
     ./modules/glance.nix
-    # ./modules/hyprland.nix
     ./modules/keepassxc.nix
     ./modules/llama-cpp.nix
     ./modules/neovim.nix
     ./modules/networking.nix
-    # ./modules/niri.nix
     ./modules/noctalia.nix
     ./modules/nixflix.nix
     ./modules/nvidia.nix
