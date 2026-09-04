@@ -21,4 +21,5 @@
   sops.secrets."usenet/eweka/password" = {};
   sops.secrets."jellyfin/admin_password" = {};
   sops.secrets."jellyfin/api_key" = {};
+  sops.secrets."flick-football-data-api-key" = {};
 }

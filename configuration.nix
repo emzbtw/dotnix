@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./modules/desktop.nix
     ./modules/flatpak.nix
+    ./modules/flick.nix
     ./modules/gaming.nix
     ./modules/glance.nix
     # ./modules/hyprland.nix

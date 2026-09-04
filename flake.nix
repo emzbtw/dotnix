@@ -3,6 +3,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    flick = {
+      url = "git+ssh://git@github.com/emzbtw/flick";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +38,7 @@
     self,
     nixpkgs,
     nix-flatpak,
+    flick,
     nix-index-database,
     nixflix,
     sops-nix,
@@ -46,6 +51,7 @@
       modules = [
         ./configuration.nix
         nix-flatpak.nixosModules.nix-flatpak
+        flick.nixosModules.default
         nix-index-database.nixosModules.default
         nixflix.nixosModules.default
         sops-nix.nixosModules.sops
