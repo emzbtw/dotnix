@@ -33,6 +33,7 @@
     zed-editor
     claude-code
     unigine-heaven
+    pi-coding-agent
     hyphenDicts.en_GB
     libreoffice-qt-stable
     nvtopPackages.nvidia
