@@ -23,4 +23,8 @@
   sops.secrets."jellyfin/api_key" = {};
   sops.secrets."flick-football-data-api-key" = {};
   sops.secrets."searxng/secret_key" = {};
+  sops.secrets."gemini/api_key" = {
+    mode = "0600";
+    owner = "emz";
+  };
 }
