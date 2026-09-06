@@ -16,6 +16,7 @@
     ./modules/packages.nix
     ./modules/rclone.nix
     ./modules/reel.nix
+    ./modules/searxng.nix
     ./modules/secrets.nix
     ./modules/shell.nix
     ./modules/spicetify.nix
