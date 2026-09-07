@@ -36,6 +36,7 @@ in {
     btop
     just
     nixd
+    herdr
     ffmpeg
     stylua
     gnumake
