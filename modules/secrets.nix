@@ -27,4 +27,12 @@
     mode = "0600";
     owner = "emz";
   };
+  sops.secrets."openrouter/api_key" = {
+    mode = "0600";
+    owner = "emz";
+  };
+  sops.secrets."openrouter/management_key" = {
+    mode = "0600";
+    owner = "emz";
+  };
 }

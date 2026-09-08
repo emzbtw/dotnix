@@ -46,6 +46,7 @@ in {
     chromium
     hunspell
     nautilus
+    ffmpegthumbnailer
     obsidian
     alejandra
     mcp-nixos
