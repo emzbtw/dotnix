@@ -57,6 +57,7 @@ in {
     claude-code
     unigine-heaven
     pi-voice
+    playerctl
     hyphenDicts.en_GB
     libreoffice-qt-stable
     nvtopPackages.nvidia
