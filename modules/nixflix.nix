@@ -100,6 +100,10 @@
 
     jellyfin = {
       enable = true;
+      # nixflix auto-installs AniDB for sonarr-anime, but its pinned version
+      # targets Jellyfin ABI 10.11 and nixpkgs now has Jellyfin 12.0.
+      # Remove once nixflix ships an ABI-12-compatible AniDB release.
+      plugins.AniDB.enable = false;
       apiKey = {_secret = config.sops.secrets."jellyfin/api_key".path;};
       users.admin = {
         policy.isAdministrator = true;
