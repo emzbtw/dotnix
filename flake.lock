@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1789580539,
-        "narHash": "sha256-viTlTrO0DbHfQBV8kCC9n4t5b4xKliP1L5HNwSFLli8=",
+        "lastModified": 1789650953,
+        "narHash": "sha256-rFjVAwL5XDkZAaHQL+eU/vIcpplpznTAjcd/m5MZPJc=",
         "ref": "refs/heads/main",
-        "rev": "668e8cf9f2dce286d618332c79196ecec59d7c27",
-        "revCount": 42,
+        "rev": "68b75cd26038fed7e3742a89d597d95e18c9dd2b",
+        "revCount": 43,
         "type": "git",
         "url": "ssh://git@github.com/emzbtw/flick"
       },
