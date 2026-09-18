@@ -1,18 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: {
-  # sops-nix (13616fff) still calls buildGo125Module, which nixpkgs removed now
-  # that Go 1.25 is EOL. Rebuild its package with the current Go builder.
-  # Drop this once sops-nix switches to a newer builder.
-  sops.package =
-    (import "${inputs.sops-nix}/default.nix" {
-      pkgs = pkgs.extend (final: prev: {buildGo125Module = prev.buildGoModule;});
-    })
-    .sops-install-secrets;
-
+{config, ...}: {
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";
   sops.age.generateKey = true;
   sops.defaultSopsFile = ../secrets/secrets.yaml;
