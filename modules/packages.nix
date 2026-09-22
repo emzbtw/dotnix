@@ -32,6 +32,7 @@ in {
     nvd
     mpv
     sops
+    gh
     sox
     btop
     just
