@@ -156,6 +156,7 @@
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "umbriel": "umbriel",
+        "vpn-confinement": "vpn-confinement_2",
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel_2"
       }
     },
@@ -269,6 +270,22 @@
       "original": {
         "owner": "Maroka-chan",
         "repo": "VPN-Confinement",
+        "type": "github"
+      }
+    },
+    "vpn-confinement_2": {
+      "locked": {
+        "lastModified": 1789394839,
+        "narHash": "sha256-trdjVJKmDBbzgbP8pd+R7iKbGkdRu0nmXgQlBR/hEiU=",
+        "owner": "Maroka-chan",
+        "repo": "VPN-Confinement",
+        "rev": "a21f66ccd9f644c3770ccdf287cb380c00192628",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Maroka-chan",
+        "repo": "VPN-Confinement",
+        "rev": "a21f66ccd9f644c3770ccdf287cb380c00192628",
         "type": "github"
       }
     },
