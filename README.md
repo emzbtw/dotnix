@@ -26,32 +26,35 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
 ├── hardware-configuration.nix
 ├── justfile                   # command runner: rebuilds, git shortcuts, search
 ├── .sops.yaml                 # sops-nix recipient keys (public, safe to commit)
+├── patches/                   # patched flake inputs (see Notes)
+│   └── nixflix-allowed-hosts.patch
 ├── secrets/
 │   └── secrets.yaml           # sops-encrypted values only
 └── modules/
-    ├── desktop.nix             # gvfs, GTK/Qt integration, theming, fonts
-    ├── flatpak.nix              # Flatpak support (nix-flatpak)
-    ├── gaming.nix                # Steam, gamemode, Proton-GE, MangoHud
-    ├── glance.nix                 # Glance dashboard
-    ├── hyprland.nix                # disabled, kept from the migration path
+    ├── desktop.nix                  # gvfs, GTK/Qt integration, theming, fonts
+    ├── flatpak.nix                  # Flatpak support (nix-flatpak)
+    ├── flick.nix                    # flick, the sports TV guide service
+    ├── gaming.nix                   # Steam, gamemode, Proton-GE, MangoHud
+    ├── glance.nix                   # Glance dashboard
+    ├── herdr-session-history.nix    # rolling snapshots of herdr's session.json
     ├── keepassxc.nix                # KeePassXC + backup service
-    ├── llama-cpp.nix                 # CUDA llama.cpp server + MCP wiring
-    ├── neovim.nix                     # Neovim, nix-ld, lua-language-server
-    ├── networking.nix                  # hostname, NetworkManager, Quad9 DoT fallback, Bluetooth
-    ├── niri.nix                         # disabled, kept from the migration path
-    ├── nixflix.nix                       # Jellyfin / *arr / SABnzbd / Seerr / Recyclarr
-    ├── noctalia.nix                       # Noctalia shell + greeter
-    ├── nvidia.nix                          # driver, CUDA capability pin, CUDA cache
-    ├── packages.nix                         # system-wide packages
-    ├── rclone.nix                            # rclone, cloud remote sync/backup
-    ├── reel.nix                               # reel, a Go TUI/CLI for Seerr, flake-packaged
-    ├── secrets.nix                             # sops-nix wiring (age keys, sops.secrets)
-    ├── shell.nix                                # fish, Ghostty, CLI/TUI tools, direnv
-    ├── spicetify.nix                             # spicetify-nix (Spotify theming)
-    ├── syncthing.nix                              # Syncthing, syncs files over the LAN
-    ├── system.nix                                  # boot, kernel, scheduler, locale, audio, user
-    ├── tailscale.nix                                # Tailscale mesh VPN
-    └── umbriel.nix                                   # Umbriel compositor + portal
+    ├── llama-cpp.nix                # CUDA llama.cpp server + MCP wiring
+    ├── neovim.nix                   # Neovim, nix-ld, lua-language-server
+    ├── networking.nix               # hostname, NetworkManager, Quad9 DoT fallback, Bluetooth
+    ├── nixflix.nix                  # Jellyfin / *arr / SABnzbd / Seerr / Recyclarr
+    ├── noctalia.nix                 # Noctalia shell + greeter
+    ├── nvidia.nix                   # driver, CUDA capability pin, CUDA cache
+    ├── packages.nix                 # system-wide packages
+    ├── rclone.nix                   # rclone, cloud remote sync/backup
+    ├── reel.nix                     # reel, a Go TUI/CLI for Seerr, flake-packaged
+    ├── searxng.nix                  # SearXNG instance, secret key via sops
+    ├── secrets.nix                  # sops-nix wiring (age keys, sops.secrets)
+    ├── shell.nix                    # fish, Ghostty, CLI/TUI tools, direnv
+    ├── spicetify.nix                # spicetify-nix (Spotify theming)
+    ├── syncthing.nix                # Syncthing, syncs files over the LAN
+    ├── system.nix                   # boot, kernel, scheduler, locale, audio, user
+    ├── tailscale.nix                # Tailscale mesh VPN
+    └── umbriel.nix                  # Umbriel compositor + portal
 ```
 
 Modules are organized **by concern, not chronology**: a new setting goes into the module it belongs to, or gets its own file only once that concern is stable.
@@ -68,7 +71,7 @@ Modules are organized **by concern, not chronology**: a new setting goes into th
 - **`reel`**: a small Go TUI/CLI for Seerr, packaged as its own flake and run hourly on a systemd timer.
 - **`scx_lavd`** sched_ext scheduler, chosen over `scx_bpfland` for 1%-low focus on a topology-simple CPU paired with a GPU bottleneck.
 - **`nixd`** wired into both Neovim and Zed for evaluation-based NixOS option completion and hover docs against this flake's own `nixosConfigurations`.
-- **`alejandra`** formatting, enforced at three layers: editor format-on-save, a picker helper, and `just fmt`.
+- **`alejandra`** formatting, enforced at three layers: editor format-on-save, `nfmt` (lists the files that would change, asks before writing), and `just fmt`.
 
 ## Workflow
 
@@ -89,6 +92,7 @@ Day to day the landing path is a fish function, `nswitch`, which stages, shows a
 
 - `/etc/nixos` is a symlink to this repo, kept for tooling that assumes the default path.
 - Public on purpose: nothing here is a secret; actual secrets go through `sops-nix` rather than a private repo.
-- `hyprland.nix` and `niri.nix` are commented out of `configuration.nix` and kept only as migration reference.
+- `patches/` carries one patch against the `nixflix` input: it adds `allowedHosts` to the arr host config payload, which Radarr 6.4.4 requires. Drop the patch, the `vpn-confinement` input and the patched-module import in `flake.nix` once nixflix ships the fix ([kiriwalawren/nixflix#356](https://github.com/kiriwalawren/nixflix/pull/356)).
+- `herdr-session-history.nix` snapshots herdr's `session.json` every minute, because herdr rewrites it in place with no backup and a shutdown race can persist a pruned session. Upstream fixed this on `main`; delete the module once nixpkgs carries a release with the built-in snapshots.
 - The `reel` input is a `git+file:` reference to a local directory, so this flake won't evaluate on a fresh clone without it. `git+file:` rather than `path:` deliberately. `path:` copies the directory wholesale with no gitignore filtering, which would pull `.direnv/` into the input's hash and churn the lock on every devShell rebuild. The tradeoff is that uncommitted changes in `reel` are invisible here.
-- Editor configs (Neovim/LazyVim, Zed), fish functions, and the Umbriel `config.toml` all live outside this repo by design.
+- Editor configs (Neovim/LazyVim, Zed), fish functions, and the Umbriel `config.toml` all live outside this repo by design. So does the `~/.local/bin/keepassxc_backup.sh` script that `keepassxc.nix` runs from a systemd service.
