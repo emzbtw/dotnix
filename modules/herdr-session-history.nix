@@ -2,14 +2,15 @@
   # Herdr rewrites ~/.config/herdr/session.json in place with no backup, and a
   # shutdown race can persist a session with its workspaces pruned (panes die
   # before the server handles SIGTERM, each exit saved as a closed workspace).
-  # Keep a rolling history of distinct versions, <epoch>_w<workspaces>_<hash>.json.
+  # Keep a rolling history of distinct versions, <utc>_w<workspaces>_<hash>.json,
+  # plus a latest.json symlink pointing at the newest one.
   #
   # Upstream (main) already fixes this: a systemd-logind shutdown delay lock plus
   # built-in session-snapshots/ and session-backups/. nixpkgs (0.9.0) has neither,
   # and 0.9.1 only adds session-backups. Delete this module once nixpkgs carries a
   # release with the built-in snapshots.
   #
-  # Restore: herdr server stop; cp ~/.local/state/herdr-session-history/<snapshot>
+  # Restore: herdr server stop; cp ~/.local/state/herdr-session-history/latest.json
   # ~/.config/herdr/session.json; herdr   # agents resume their own conversations
   snapshot = pkgs.writeShellApplication {
     name = "herdr-session-snapshot";
@@ -28,15 +29,20 @@
       fi
 
       workspaces="$(jq -r '.workspaces | length' "$src" 2>/dev/null || echo unknown)"
-      cp "$src" "$dir/$(date +%s)_w''${workspaces}_''${hash}.json"
+      name="$(date -u +%Y-%m-%dT%H-%M-%SZ)_w''${workspaces}_''${hash}.json"
+      cp "$src" "$dir/$name"
+      ln -sfn "$name" "$dir/latest.json"
 
-      # Epoch prefixes: glob order is age order.
-      snapshots=("$dir"/*.json)
-      if [ -e "''${snapshots[0]}" ]; then
-        for ((i = 0; i < ''${#snapshots[@]} - keep; i++)); do
-          rm -f -- "''${snapshots[i]}"
-        done
-      fi
+      # Timestamp prefixes: glob order is age order (legacy epoch names sort
+      # ahead of ISO names, so mixed directories stay oldest-first too).
+      # Skip symlinks so latest.json is never counted or pruned.
+      snapshots=()
+      for f in "$dir"/*.json; do
+        [ -f "$f" ] && [ ! -L "$f" ] && snapshots+=("$f")
+      done
+      for ((i = 0; i < ''${#snapshots[@]} - keep; i++)); do
+        rm -f -- "''${snapshots[i]}"
+      done
     '';
   };
 in {
