@@ -71,7 +71,7 @@ Modules are organized **by concern, not chronology**: a new setting goes into th
 - **`reel`**: a small Go TUI/CLI for Seerr, packaged as its own flake and run hourly on a systemd timer.
 - **`scx_lavd`** sched_ext scheduler, chosen over `scx_bpfland` for 1%-low focus on a topology-simple CPU paired with a GPU bottleneck.
 - **`nixd`** wired into both Neovim and Zed for evaluation-based NixOS option completion and hover docs against this flake's own `nixosConfigurations`.
-- **`alejandra`** formatting, enforced at three layers: editor format-on-save, `nfmt` (lists the files that would change, asks before writing), and `just fmt`.
+- **`alejandra`** formatting, enforced at four places: format-on-save in Neovim and Zed, `nfmt` (lists the files that would change, asks before writing), and `just fmt`.
 
 ## Workflow
 
