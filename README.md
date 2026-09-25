@@ -26,8 +26,6 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
 ├── hardware-configuration.nix
 ├── justfile                   # command runner: rebuilds, git shortcuts, search
 ├── .sops.yaml                 # sops-nix recipient keys (public, safe to commit)
-├── patches/                   # patched flake inputs (see Notes)
-│   └── nixflix-allowed-hosts.patch
 ├── secrets/
 │   └── secrets.yaml           # sops-encrypted values only
 └── modules/
@@ -92,7 +90,6 @@ Day to day the landing path is a fish function, `nswitch`, which stages, shows a
 
 - `/etc/nixos` is a symlink to this repo, kept for tooling that assumes the default path.
 - Public on purpose: nothing here is a secret; actual secrets go through `sops-nix` rather than a private repo.
-- `patches/` carries one patch against the `nixflix` input: it adds `allowedHosts` to the arr host config payload, which Radarr 6.4.4 requires. Drop the patch, the `vpn-confinement` input and the patched-module import in `flake.nix` once nixflix ships the fix ([kiriwalawren/nixflix#356](https://github.com/kiriwalawren/nixflix/pull/356)).
 - `herdr-session-history.nix` snapshots herdr's `session.json` every minute, because herdr rewrites it in place with no backup and a shutdown race can persist a pruned session. Upstream fixed this on `main`; delete the module once nixpkgs carries a release with the built-in snapshots.
 - The `reel` input is a `git+file:` reference to a local directory, so this flake won't evaluate on a fresh clone without it. `git+file:` rather than `path:` deliberately. `path:` copies the directory wholesale with no gitignore filtering, which would pull `.direnv/` into the input's hash and churn the lock on every devShell rebuild. The tradeoff is that uncommitted changes in `reel` are invisible here.
 - Editor configs (Neovim/LazyVim, Zed), fish functions, and the Umbriel `config.toml` all live outside this repo by design. So does the `~/.local/bin/keepassxc_backup.sh` script that `keepassxc.nix` runs from a systemd service.
