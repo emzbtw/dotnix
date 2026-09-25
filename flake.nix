@@ -2,7 +2,6 @@
   description = "dotnix: single-machine NixOS flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     flick = {
       url = "git+ssh://git@github.com/emzbtw/flick";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +36,6 @@
   outputs = {
     self,
     nixpkgs,
-    nix-flatpak,
     flick,
     nix-index-database,
     nixflix,
@@ -50,7 +48,6 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
-        nix-flatpak.nixosModules.nix-flatpak
         flick.nixosModules.default
         nix-index-database.nixosModules.default
         nixflix.nixosModules.default

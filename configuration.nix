@@ -2,7 +2,6 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/desktop.nix
-    ./modules/flatpak.nix
     ./modules/flick.nix
     ./modules/gaming.nix
     ./modules/glance.nix
@@ -14,6 +13,7 @@
     ./modules/noctalia.nix
     ./modules/nixflix.nix
     ./modules/nvidia.nix
+    ./modules/open-tv.nix
     ./modules/packages.nix
     ./modules/rclone.nix
     ./modules/reel.nix
