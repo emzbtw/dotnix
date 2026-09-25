@@ -30,7 +30,6 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
 │   └── secrets.yaml           # sops-encrypted values only
 └── modules/
     ├── desktop.nix                  # gvfs, GTK/Qt integration, theming, fonts
-    ├── flatpak.nix                  # Flatpak support (nix-flatpak)
     ├── flick.nix                    # flick, the sports TV guide service
     ├── gaming.nix                   # Steam, gamemode, Proton-GE, MangoHud
     ├── glance.nix                   # Glance dashboard
@@ -42,6 +41,7 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── nixflix.nix                  # Jellyfin / *arr / SABnzbd / Seerr / Recyclarr
     ├── noctalia.nix                 # Noctalia shell + greeter
     ├── nvidia.nix                   # driver, CUDA capability pin, CUDA cache
+    ├── open-tv.nix                  # Fred TV (open-tv) IPTV player, packaged from the upstream deb
     ├── packages.nix                 # system-wide packages
     ├── rclone.nix                   # rclone, cloud remote sync/backup
     ├── reel.nix                     # reel, a Go TUI/CLI for Seerr, flake-packaged
