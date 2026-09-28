@@ -58,6 +58,8 @@ in {
     claude-code
     unigine-heaven
     pi-voice
+    python3
+    nodejs
     playerctl
     hyphenDicts.en_GB
     libreoffice-qt-stable
