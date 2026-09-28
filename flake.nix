@@ -14,7 +14,7 @@
       url = "github:kiriwalawren/nixflix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    reel.url = "git+file:///home/emz/code/projects/reel";
+    reel.url = "git+file:///home/emz/Projects/reel";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
