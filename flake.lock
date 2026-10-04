@@ -139,6 +139,7 @@
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "umbriel": "umbriel",
+        "vidicon": "vidicon",
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel_2"
       }
     },
@@ -238,6 +239,26 @@
       "original": {
         "type": "git",
         "url": "https://github.com/noctalia-dev/umbriel"
+      }
+    },
+    "vidicon": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791136032,
+        "narHash": "sha256-jo9/LSq9/zXzrro30nWy9Wnglh116tRia5DCOGdrXEQ=",
+        "ref": "refs/heads/main",
+        "rev": "d87ca86dbc04947010062258ebba2a759bc4d6b2",
+        "revCount": 112,
+        "type": "git",
+        "url": "file:///home/emz/Projects/vidicon"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/emz/Projects/vidicon"
       }
     },
     "vpn-confinement": {

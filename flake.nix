@@ -27,6 +27,10 @@
       url = "git+https://github.com/noctalia-dev/umbriel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vidicon = {
+      url = "git+file:///home/emz/Projects/vidicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     xdg-desktop-portal-umbriel = {
       url = "github:noctalia-dev/xdg-desktop-portal-umbriel";
       inputs.nixpkgs.follows = "nixpkgs";

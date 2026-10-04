@@ -25,5 +25,6 @@
     ./modules/system.nix
     ./modules/tailscale.nix
     ./modules/umbriel.nix
+    ./modules/vidicon.nix
   ];
 }
