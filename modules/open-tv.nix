@@ -48,7 +48,7 @@
       cp -r usr/share $out/share
       mv "$out/share/applications/Fred TV.desktop" $out/share/applications/open-tv.desktop
       substituteInPlace $out/share/applications/open-tv.desktop \
-        --replace "Exec=env WEBKIT_DISABLE_DMABUF_RENDERER=1 open_tv" "Exec=open_tv"
+        --replace-fail "Exec=env WEBKIT_DISABLE_DMABUF_RENDERER=1 open_tv" "Exec=open_tv"
 
       runHook postInstall
     '';
