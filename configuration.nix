@@ -5,7 +5,6 @@
     ./modules/flick.nix
     ./modules/gaming.nix
     ./modules/glance.nix
-    ./modules/herdr-session-history.nix
     ./modules/keepassxc.nix
     ./modules/llama-cpp.nix
     ./modules/neovim.nix

@@ -33,7 +33,6 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── flick.nix                    # flick, the sports TV guide service
     ├── gaming.nix                   # Steam, gamemode, Proton-GE, MangoHud
     ├── glance.nix                   # Glance dashboard
-    ├── herdr-session-history.nix    # rolling snapshots of herdr's session.json
     ├── keepassxc.nix                # KeePassXC + backup service
     ├── llama-cpp.nix                # CUDA llama.cpp server + MCP wiring
     ├── neovim.nix                   # Neovim, nix-ld, lua-language-server
@@ -91,6 +90,5 @@ Day to day the landing path is a fish function, `nswitch`, which stages, shows a
 
 - `/etc/nixos` is a symlink to this repo, kept for tooling that assumes the default path.
 - Public on purpose: nothing here is a secret; actual secrets go through `sops-nix` rather than a private repo.
-- `herdr-session-history.nix` snapshots herdr's `session.json` every minute, because herdr rewrites it in place with no backup and a shutdown race can persist a pruned session. Upstream fixed this on `main`; delete the module once nixpkgs carries a release with the built-in snapshots.
 - The `reel` and `vidicon` inputs are `git+file:` references to local directories, so this flake won't evaluate on a fresh clone without them. `git+file:` rather than `path:` deliberately. `path:` copies the directory wholesale with no gitignore filtering, which would pull `.direnv/` into the input's hash and churn the lock on every devShell rebuild. The tradeoff is that uncommitted changes in either are invisible here.
 - Editor configs (Neovim/LazyVim, Zed), fish functions, and the Umbriel `config.toml` all live outside this repo by design. So does the `~/.local/bin/keepassxc_backup.sh` script that `keepassxc.nix` runs from a systemd service.
