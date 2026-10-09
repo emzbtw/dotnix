@@ -1,6 +1,6 @@
 # ❄️ dotnix
 
-My personal, single-machine [NixOS](https://nixos.org) configuration, managed with **flakes**, no Home Manager. A [Umbriel](https://github.com/noctalia-dev/umbriel) + [Noctalia](https://github.com/noctalia-dev/noctalia) Wayland desktop, a fish/Ghostty daily driver, a CUDA llama.cpp server, and a self-hosted media stack, all declared here.
+My personal, single-machine [NixOS](https://nixos.org) configuration, managed with **flakes**, no Home Manager. A [Umbriel](https://github.com/noctalia-dev/umbriel) + [Noctalia](https://github.com/noctalia-dev/noctalia) Wayland desktop, a fish/kitty daily driver, a CUDA llama.cpp server, and a self-hosted media stack, all declared here.
 
 This isn't meant as a drop-in template: hardware paths, hostnames, and a fair number of opinions are baked in. Feel free to poke around for ideas.
 
@@ -13,7 +13,7 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
 | **RAM** | 16GB |
 | **Compositor** | Umbriel (wlroots + SceneFX), Xwayland via xwayland-satellite |
 | **Shell (desktop)** | Noctalia v5, with noctalia-greeter as display manager |
-| **Shell / Terminal** | fish / Ghostty |
+| **Shell / Terminal** | fish / kitty |
 | **Editor** | Neovim (LazyVim, unmanaged by Nix) + Zed |
 | **Kernel** | `linuxPackages_latest`, `scx_lavd` scheduler via `services.scx.enable` |
 
@@ -47,7 +47,7 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── reel.nix                     # reel, a Go TUI/CLI for Seerr, flake-packaged
     ├── searxng.nix                  # SearXNG instance, secret key via sops
     ├── secrets.nix                  # sops-nix wiring (age keys, sops.secrets)
-    ├── shell.nix                    # fish, Ghostty, CLI/TUI tools, direnv
+    ├── shell.nix                    # fish, kitty, CLI/TUI tools, direnv
     ├── spicetify.nix                # spicetify-nix (Spotify theming)
     ├── syncthing.nix                # Syncthing, syncs files over the LAN
     ├── system.nix                   # boot, kernel, scheduler, locale, audio, user

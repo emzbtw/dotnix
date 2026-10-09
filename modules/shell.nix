@@ -49,6 +49,7 @@
     cava
     wget
     yazi
+    kitty
     procs
     unzip
     cliamp
@@ -56,7 +57,6 @@
     yt-dlp
     ripgrep
     tcpdump
-    ghostty
     tealdeer
     starship
     fastfetch
