@@ -33,6 +33,7 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── flick.nix                    # flick, the sports TV guide service
     ├── gaming.nix                   # Steam, gamemode, Proton-GE, MangoHud
     ├── glance.nix                   # Glance dashboard
+    ├── handy.nix                    # Handy offline speech-to-text, from the upstream flake
     ├── keepassxc.nix                # KeePassXC + backup service
     ├── llama-cpp.nix                # CUDA llama.cpp server + MCP wiring
     ├── neovim.nix                   # Neovim, nix-ld, lua-language-server

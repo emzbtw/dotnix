@@ -6,6 +6,11 @@
       url = "git+ssh://git@github.com/emzbtw/flick";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    handy = {
+      url = "github:cjpais/Handy/v0.9.8";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.bun2nix.inputs.systems.url = "github:nix-systems/x86_64-linux";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,6 +46,7 @@
     self,
     nixpkgs,
     flick,
+    handy,
     nix-index-database,
     nixflix,
     sops-nix,
@@ -53,6 +59,7 @@
       modules = [
         ./configuration.nix
         flick.nixosModules.default
+        handy.nixosModules.default
         nix-index-database.nixosModules.default
         nixflix.nixosModules.default
         sops-nix.nixosModules.sops
