@@ -53,7 +53,8 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── system.nix                   # boot, kernel, scheduler, locale, audio, user
     ├── tailscale.nix                # Tailscale mesh VPN
     ├── umbriel.nix                  # Umbriel compositor + portal
-    └── vidicon.nix                  # vidicon, an IPTV player, flake-packaged
+    ├── vidicon.nix                  # vidicon, an IPTV player, flake-packaged
+    └── voxtype.nix                  # Voxtype offline speech-to-text, from the upstream flake
 ```
 
 Modules are organized **by concern, not chronology**: a new setting goes into the module it belongs to, or gets its own file only once that concern is stable.

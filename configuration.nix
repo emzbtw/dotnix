@@ -26,5 +26,6 @@
     ./modules/tailscale.nix
     ./modules/umbriel.nix
     ./modules/vidicon.nix
+    ./modules/voxtype.nix
   ];
 }

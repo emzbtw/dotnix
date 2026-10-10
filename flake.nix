@@ -36,6 +36,10 @@
       url = "git+file:///home/emz/Projects/vidicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    voxtype = {
+      url = "github:peteonrails/voxtype/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     xdg-desktop-portal-umbriel = {
       url = "github:noctalia-dev/xdg-desktop-portal-umbriel";
       inputs.nixpkgs.follows = "nixpkgs";
