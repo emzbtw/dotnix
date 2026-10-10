@@ -109,6 +109,9 @@
   # External monitor tools
   hardware.i2c.enable = true;
 
+  # Vial keyboard access
+  services.udev.packages = [pkgs.vial];
+
   fileSystems."/mnt/storage" = {
     device = "/dev/disk/by-uuid/a4552316-f769-4f00-b4b0-0fbe492c855e";
     fsType = "ext4";

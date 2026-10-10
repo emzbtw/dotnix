@@ -65,6 +65,7 @@ in {
     libreoffice-qt-stable
     nvtopPackages.nvidia
     hunspellDicts.en_GB-ise
+    vial
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
