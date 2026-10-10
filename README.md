@@ -53,7 +53,7 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── tailscale.nix                # Tailscale mesh VPN
     ├── umbriel.nix                  # Umbriel compositor + portal
     ├── vidicon.nix                  # vidicon, an IPTV player, flake-packaged
-    └── voxtype.nix                  # Voxtype offline speech-to-text, from the upstream flake
+    └── voxtype.nix                  # Voxtype offline speech-to-text from the upstream flake + user service
 ```
 
 Modules are organized **by concern, not chronology**: a new setting goes into the module it belongs to, or gets its own file only once that concern is stable.
@@ -68,6 +68,7 @@ Modules are organized **by concern, not chronology**: a new setting goes into th
 - **`nixflix`**: a self-hosted media stack (Jellyfin, Sonarr, Sonarr-Anime, Radarr, Prowlarr, SABnzbd, Seerr, Recyclarr) run direct-play only, since GM204 can't decode 10-bit HEVC. Indexers and quality profiles are declared in Nix and destructively reconciled on activation.
 - **`llama-cpp`** built with `cudaSupport`, served on `:8090` in router mode with an MCP server wired in by absolute store path (the hardened unit has no `$PATH`). `cudaCapabilities` pinned to `5.2` so CUDA builds target only this card.
 - **`reel`**: a small Go TUI/CLI for Seerr, packaged as its own flake and run hourly on a systemd timer.
+- **`voxtype`**: offline dictation from the upstream flake (onnx build, Parakeet), run as a systemd user service on `graphical-session.target` so `voxtype configure` can restart it with `systemctl --user restart voxtype`. Its OSD frontend goes on the unit's `path`, since the launcher finds it via `$PATH`.
 - **`scx_lavd`** sched_ext scheduler, chosen over `scx_bpfland` for 1%-low focus on a topology-simple CPU paired with a GPU bottleneck.
 - **`nixd`** wired into both Neovim and Zed for evaluation-based NixOS option completion and hover docs against this flake's own `nixosConfigurations`.
 - **`alejandra`** formatting, enforced at four places: format-on-save in Neovim and Zed, `nfmt` (lists the files that would change, asks before writing), and `just fmt`.
