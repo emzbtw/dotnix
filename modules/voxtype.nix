@@ -13,6 +13,7 @@ in {
     after = ["graphical-session.target"];
     wantedBy = ["graphical-session.target"];
     path = [voxtype.osd-native pkgs.which];
+    environment.RUST_LOG = "voxtype=info,voxtype::daemon=warn,voxtype::transcribe=warn,warn";
     serviceConfig = {
       ExecStart = "${voxtype.onnx}/bin/voxtype daemon";
       Restart = "on-failure";
