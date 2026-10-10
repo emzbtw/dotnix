@@ -12,7 +12,7 @@ in {
     partOf = ["graphical-session.target"];
     after = ["graphical-session.target"];
     wantedBy = ["graphical-session.target"];
-    path = [voxtype.osd-native];
+    path = [voxtype.osd-native pkgs.which];
     serviceConfig = {
       ExecStart = "${voxtype.onnx}/bin/voxtype daemon";
       Restart = "on-failure";
