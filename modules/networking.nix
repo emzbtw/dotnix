@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -32,6 +32,20 @@
         "2620:fe::9#dns.quad9.net"
       ];
     };
+  };
+
+  # ControlD over DoT first, Quad9 after it. resolved ignores FallbackDNS once
+  # DNS= is set, so Quad9 is repeated here. The resolver ID comes from sops.
+  sops.templates."resolved-controld.conf" = {
+    path = "/etc/systemd/resolved.conf.d/controld.conf";
+    owner = "systemd-resolve";
+    restartUnits = ["systemd-resolved.service"];
+    content = let
+      host = "nixos-${config.sops.placeholder."controld/resolver_id"}.dns.controld.com";
+    in ''
+      [Resolve]
+      DNS=76.76.2.22#${host} 2606:1a40::22#${host} 9.9.9.9#dns.quad9.net 2620:fe::fe#dns.quad9.net
+    '';
   };
 
   # Enable bluetooth
