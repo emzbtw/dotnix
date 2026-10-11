@@ -36,7 +36,7 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── keepassxc.nix                # KeePassXC + backup service
     ├── llama-cpp.nix                # CUDA llama.cpp server + MCP wiring
     ├── neovim.nix                   # Neovim, nix-ld, lua-language-server
-    ├── networking.nix               # hostname, NetworkManager, Quad9 DoT fallback, Bluetooth
+    ├── networking.nix               # hostname, NetworkManager, ControlD DoT with Quad9 failover, Bluetooth
     ├── nixflix.nix                  # Jellyfin / *arr / SABnzbd / Seerr / Recyclarr
     ├── noctalia.nix                 # Noctalia shell + greeter
     ├── nvidia.nix                   # driver, CUDA capability pin, CUDA cache
@@ -69,6 +69,7 @@ Modules are organized **by concern, not chronology**: a new setting goes into th
 - **`llama-cpp`** built with `cudaSupport`, served on `:8090` in router mode with an MCP server wired in by absolute store path (the hardened unit has no `$PATH`). `cudaCapabilities` pinned to `5.2` so CUDA builds target only this card.
 - **`reel`**: a small Go TUI/CLI for Seerr, packaged as its own flake and run hourly on a systemd timer.
 - **`voxtype`**: offline dictation from the upstream flake (onnx build, Parakeet), run as a systemd user service on `graphical-session.target` so `voxtype configure` can restart it with `systemctl --user restart voxtype`. The unit's `path` adds two runtime lookups: the OSD frontend, found by its launcher via `$PATH`, and `which`, used to detect the typing backends (without it every output method reports unavailable). `RUST_LOG` drops the daemon and transcribe modules to `warn`, the only places that log transcript text, so dictation never reaches the journal.
+- **ControlD DNS** over DoT in systemd-resolved, with Quad9 after it in the same `DNS=` list (resolved ignores `FallbackDNS=` once `DNS=` is set). The resolver ID is a sops secret, so a `sops.templates` entry renders `/etc/systemd/resolved.conf.d/controld.conf` at activation, owned by `systemd-resolve`, and restarts resolved when it changes. Each server is `IP#<id>.dns.controld.com`: resolved needs an IP, and ControlD identifies the resolver from the SNI. The SNI must be the bare `<id>`, since ControlD refuses DoT with a `<client>-<id>` prefix. Tailscale keeps its DNS on and forwards to the same resolver over DoH, so MagicDNS names still route to `tailscale0` while resolved races both paths and takes the first good answer. resolved doesn't move back to ControlD after failing over, so restart it once ControlD recovers.
 - **`scx_lavd`** sched_ext scheduler, chosen over `scx_bpfland` for 1%-low focus on a topology-simple CPU paired with a GPU bottleneck.
 - **`nixd`** wired into both Neovim and Zed for evaluation-based NixOS option completion and hover docs against this flake's own `nixosConfigurations`.
 - **`alejandra`** formatting, enforced at four places: format-on-save in Neovim and Zed, `nfmt` (lists the files that would change, asks before writing), and `just fmt`.
