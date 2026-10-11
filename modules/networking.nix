@@ -41,7 +41,7 @@
     owner = "systemd-resolve";
     restartUnits = ["systemd-resolved.service"];
     content = let
-      host = "nixos-${config.sops.placeholder."controld/resolver_id"}.dns.controld.com";
+      host = "${config.sops.placeholder."controld/resolver_id"}.dns.controld.com";
     in ''
       [Resolve]
       DNS=76.76.2.22#${host} 2606:1a40::22#${host} 9.9.9.9#dns.quad9.net 2620:fe::fe#dns.quad9.net
