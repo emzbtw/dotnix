@@ -282,11 +282,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791762134,
-        "narHash": "sha256-C1JhEuo6THH0OGI559wVdjqb2r8OjzLuD61u/t8RpXw=",
+        "lastModified": 1791923442,
+        "narHash": "sha256-r+q5o7DGGUo+MjMGiHlIe0bxMsWuGZB/uSul82C7U1g=",
         "ref": "refs/heads/main",
-        "rev": "9300ddea3352f3da1e0e725a010ed0b6a7cf7776",
-        "revCount": 117,
+        "rev": "b4c544886ec8bfdd910f0b151b1a10e619317dac",
+        "revCount": 134,
         "type": "git",
         "url": "file:///home/emz/Projects/vidicon"
       },
