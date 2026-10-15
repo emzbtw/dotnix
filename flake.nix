@@ -32,7 +32,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     voxtype = {
-      url = "github:peteonrails/voxtype/v1.1.0";
+      url = "github:peteonrails/voxtype/v1.1.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     xdg-desktop-portal-umbriel = {
