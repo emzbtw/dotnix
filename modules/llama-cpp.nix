@@ -1,6 +1,8 @@
 {pkgs, ...}: let
   llama-cpp-cuda = pkgs.llama-cpp.override {
     cudaSupport = true;
+    # CUDA 13 dropped Maxwell (cudaCapabilities 5.2); 12.9 is the last release with it.
+    cudaPackages = pkgs.cudaPackages_12_9;
   };
   mcpServersConfig = pkgs.writeText "llama-cpp-mcp-servers.json" (builtins.toJSON {
     mcpServers.nixos = {command = "${pkgs.mcp-nixos}/bin/mcp-nixos";};
