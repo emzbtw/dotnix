@@ -2,6 +2,10 @@
   description = "dotnix: single-machine NixOS flake";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    concord = {
+      url = "github:chojs23/concord/v2.6.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flick = {
       url = "git+ssh://git@github.com/emzbtw/flick";
       inputs.nixpkgs.follows = "nixpkgs";

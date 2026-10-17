@@ -60,7 +60,7 @@
     tealdeer
     starship
     fastfetch
-    concord-tui
+    inputs.concord.packages.${pkgs.stdenv.hostPlatform.system}.default
     wl-clipboard
     proton-vpn-cli
     translate-shell
