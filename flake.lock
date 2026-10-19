@@ -376,17 +376,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1792363287,
-        "narHash": "sha256-0O3amYJDvAyf383+dS0O2gBLlv60CdnKz0avXxrIlwo=",
-        "ref": "refs/heads/main",
-        "rev": "02660d4402eaa87ffaa3cac1e3c0b8cc8e201b12",
-        "revCount": 145,
-        "type": "git",
-        "url": "file:///home/emz/Projects/vidicon"
+        "lastModified": 1792451448,
+        "narHash": "sha256-wmPM5lcZ9bUM86aFSDmCmkf74op97JdlVUgOAHs1qqg=",
+        "owner": "emzbtw",
+        "repo": "vidicon",
+        "rev": "545858802d2b1fe1c364d34a9764d858d25aa2c3",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/emz/Projects/vidicon"
+        "owner": "emzbtw",
+        "repo": "vidicon",
+        "type": "github"
       }
     },
     "voxtype": {
