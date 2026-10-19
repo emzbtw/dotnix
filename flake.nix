@@ -32,7 +32,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     vidicon = {
-      url = "git+file:///home/emz/Projects/vidicon";
+      url = "github:emzbtw/vidicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     voxtype = {
