@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     concord = {
-      url = "github:chojs23/concord/v2.6.2";
+      url = "github:chojs23/concord/v2.6.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flick = {
