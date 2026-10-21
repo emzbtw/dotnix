@@ -51,7 +51,6 @@ in {
     obsidian
     alejandra
     mcp-nixos
-    iptvnator
     stress-ng
     libnotify
     zed-editor

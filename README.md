@@ -40,7 +40,6 @@ This isn't meant as a drop-in template: hardware paths, hostnames, and a fair nu
     ├── nixflix.nix                  # Jellyfin / *arr / SABnzbd / Seerr / Recyclarr
     ├── noctalia.nix                 # Noctalia shell + greeter
     ├── nvidia.nix                   # driver, CUDA capability pin, CUDA cache
-    ├── open-tv.nix                  # Fred TV (open-tv) IPTV player, packaged from the upstream deb
     ├── packages.nix                 # system-wide packages
     ├── rclone.nix                   # rclone, cloud remote sync/backup
     ├── reel.nix                     # reel, a Go TUI/CLI for Seerr, flake-packaged

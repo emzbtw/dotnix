@@ -12,7 +12,6 @@
     ./modules/noctalia.nix
     ./modules/nixflix.nix
     ./modules/nvidia.nix
-    ./modules/open-tv.nix
     ./modules/packages.nix
     ./modules/rclone.nix
     ./modules/reel.nix
