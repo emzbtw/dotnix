@@ -1,9 +1,4 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: {
+{config, ...}: {
   nixflix = {
     enable = true;
     mediaDir = "/mnt/storage/data/media";
@@ -118,8 +113,6 @@
 
     seerr = {
       enable = true;
-      # Remove once nixflix supports the Seerr 3.5.0 library API (nixflix#385).
-      package = inputs.nixpkgs-seerr.legacyPackages.${pkgs.stdenv.hostPlatform.system}.seerr;
       apiKey = {_secret = config.sops.secrets."seerr/api_key".path;};
     };
   };

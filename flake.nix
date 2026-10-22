@@ -18,8 +18,6 @@
       url = "github:kiriwalawren/nixflix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Seerr 3.4.1. Remove once nixflix supports the Seerr 3.5.0 library API (nixflix#385).
-    nixpkgs-seerr.url = "github:nixos/nixpkgs/fe13242281a67641c0102cdb1087f0ebe586c7df";
     reel.url = "git+file:///home/emz/Projects/reel";
     sops-nix = {
       url = "github:Mic92/sops-nix";

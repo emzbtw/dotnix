@@ -170,22 +170,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-seerr": {
-      "locked": {
-        "lastModified": 1792094642,
-        "narHash": "sha256-zp8ToDMnqZcu4o4IH9pdwXFXGp7yLm/M0dEnNWnyd7I=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "fe13242281a67641c0102cdb1087f0ebe586c7df",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "fe13242281a67641c0102cdb1087f0ebe586c7df",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1786106723,
@@ -227,7 +211,6 @@
         "nix-index-database": "nix-index-database",
         "nixflix": "nixflix",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-seerr": "nixpkgs-seerr",
         "reel": "reel",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
