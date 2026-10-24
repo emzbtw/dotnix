@@ -376,11 +376,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792797389,
-        "narHash": "sha256-CVgmPcI+syRfqnui3xAcU4gWBWpbb4FEpa3yBdEVJTY=",
+        "lastModified": 1792860698,
+        "narHash": "sha256-cgTI5TPP9fNyo/v5VMcrJ7LObtl5gU71F4KkCkCyxPA=",
         "owner": "emzbtw",
         "repo": "vidicon",
-        "rev": "6b02a6c07540be8c319f487d60411c93c6a617e4",
+        "rev": "89484f4aa78d90afe001f24a63da2dfcd1d38d5e",
         "type": "github"
       },
       "original": {
